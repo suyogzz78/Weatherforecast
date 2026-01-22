@@ -1,18 +1,56 @@
-import React from "react";
+// import React from "react";
+import search from "../assets/search.png";
+import clear from "../assets/clear.png";
+import wind from "../assets/wind.png";
+import humidity from "../assets/humidity.png";
 
 const Weather = () => {
   return (
-    <div className="bg-purple-600 min-h-screen ">
-      <div className="flex flex-row md:flex-col">
-        <h1 className="text-white text-3xl font-bold text-center p-5">
-          Weather Forecast App
-        </h1>
+    <div className="bg-violet-900 min-h-screen">
+      <h1 className="text-white text-3xl font-bold text-center p-10">
+        Weather Forecast
+      </h1>
 
-        <input
-          type="text"
-          placeholder="Enter city name"
-          className="w-1-4 mx-auto p-2 rounded-md text-center"
-        />
+      {/* Card */}
+      <div className="flex flex-col items-center gap-6 p-6 bg-gradient-to-r from-purple-700 to-purple-400 w-[400px] mx-auto rounded-md border-2 border-black">
+        {/* Search bar */}
+        <div className="flex flex-row items-center gap-3 w-full justify-center">
+          <input
+            type="text"
+            placeholder="Enter city name"
+            className="w-full p-2 rounded-full outline-none border-2 pl-4 text-center"
+          />
+
+          <img
+            src={search}
+            alt="search"
+            className="h-9 w-9 bg-white rounded-full p-2 cursor-pointer"
+          />
+        </div>
+
+        {/* Weather Image */}
+        <div className="flex flex-col items-center">
+          <img src={clear} alt="clear weather" className="w-32 h-32" />
+          <div>
+            <h2 className="text-white text-4xl font-semibold pl-4">25°C</h2>
+            <p className="text-white text-lg mt-2 ">KATHMANDU</p>
+          </div>
+        </div>
+        <div className="flex justify-between w-full px-10">
+          {/* Wind */}
+          <div className="flex flex-col items-center">
+            <img src={wind} className="w-10 h-10" />
+            <h2 className="text-white text-xl font-semibold">18 km/h</h2>
+            <p className="text-white text-sm">Wind Speed</p>
+          </div>
+
+          {/* Humidity */}
+          <div className="flex flex-col items-center">
+            <img src={humidity} className="w-10 h-10" />
+            <h2 className="text-white text-xl font-semibold">64%</h2>
+            <p className="text-white text-sm">Humidity</p>
+          </div>
+        </div>
       </div>
     </div>
   );
