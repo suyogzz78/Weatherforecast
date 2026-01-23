@@ -36,19 +36,23 @@ const Weather = () => {
             <p className="text-white text-lg mt-2 ">KATHMANDU</p>
           </div>
         </div>
-        <div className="flex justify-between w-full px-10">
+        <div className="flex justify-between w-full px-10 ">
           {/* Wind */}
-          <div className="flex flex-col items-center">
+          <div className="flex flex-row items-center gap-3">
             <img src={wind} className="w-10 h-10" />
-            <h2 className="text-white text-xl font-semibold">18 km/h</h2>
-            <p className="text-white text-sm">Wind Speed</p>
+            <div>
+              <h2 className="text-white text-md font-semibold">18 km/h</h2>
+              <p className="text-white text-sm">Wind Speed</p>
+            </div>
           </div>
 
           {/* Humidity */}
-          <div className="flex flex-col items-center">
+          <div className="flex flex-row items-center gap-3">
             <img src={humidity} className="w-10 h-10" />
-            <h2 className="text-white text-xl font-semibold">64%</h2>
-            <p className="text-white text-sm">Humidity</p>
+            <div>
+              <h2 className="text-white text-md font-semibold">64%</h2>
+              <p className="text-white text-sm">Humidity</p>
+            </div>
           </div>
         </div>
       </div>
