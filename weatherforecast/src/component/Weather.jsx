@@ -4,9 +4,33 @@ import clear from "../assets/clear.png";
 import wind from "../assets/wind.png";
 import humidity from "../assets/humidity.png";
 import { useEffect } from "react";
+import { useState } from "react";
+import drizzle_icon from "../assets/drizzle.png";
+import rain_icon from "../assets/rain.png";
+import snow_icon from "../assets/snow.png";
 
 const Weather = () => {
 
+const [weatherData, setWeatherData] = useState(null);
+
+const theicons={
+ "01d": clear,
+"01n": clear,
+"02d": clear,
+"02n": clear,
+"03d": clear,
+"03n": clear,
+"04d": drizzle_icon,
+"04n": drizzle_icon,
+"09d": rain_icon,
+"09n": rain_icon,
+"10d": rain_icon,
+"10n": rain_icon,
+"13d": snow_icon,
+"13n": snow_icon,
+
+  
+}
 
   const search=async(city) => {
 
@@ -16,12 +40,19 @@ const Weather = () => {
         const res = await fetch(url);
         const data = await res.json();
         console.log(data);
+        setWeatherData({
+          temperature: data.main.temp,
+          city: data.name,
+          windSpeed: data.wind.speed,
+          humidity: data.main.humidity,
+        })
+   
+
       } catch (error) {
         console.log("error");
       }
       
     }
-
     useEffect(() => {
       search("Kathmandu");
     }, []);
