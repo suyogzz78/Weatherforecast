@@ -1,10 +1,32 @@
 // import React from "react";
-import search from "../assets/search.png";
+import searchicon from "../assets/search.png";
 import clear from "../assets/clear.png";
 import wind from "../assets/wind.png";
 import humidity from "../assets/humidity.png";
+import { useEffect } from "react";
 
 const Weather = () => {
+
+
+  const search=async(city) => {
+
+      try {
+
+        const url  = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${import.meta.env.VITE_API_KEY}&units=metric`;
+        const res = await fetch(url);
+        const data = await res.json();
+        console.log(data);
+      } catch (error) {
+        console.log("error");
+      }
+      
+    }
+
+    useEffect(() => {
+      search("Kathmandu");
+    }, []);
+
+  
   return (
     <div className="bg-violet-900 min-h-screen">
       <h1 className="text-white text-3xl font-bold text-center p-10">
@@ -22,7 +44,7 @@ const Weather = () => {
           />
 
           <img
-            src={search}
+            src={searchicon}
             alt="search"
             className="h-9 w-9 bg-white rounded-full p-2 cursor-pointer"
           />
