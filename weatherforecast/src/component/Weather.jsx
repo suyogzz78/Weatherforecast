@@ -8,9 +8,12 @@ import { useState } from "react";
 import drizzle_icon from "../assets/drizzle.png";
 import rain_icon from "../assets/rain.png";
 import snow_icon from "../assets/snow.png";
+import React from "react";
+
 
 const Weather = () => {
   const [weatherData, setWeatherData] = useState(false);
+  const inputref = React.useRef();
 
   const theicons = {
     "01d": clear,
@@ -62,6 +65,7 @@ const Weather = () => {
         {/* Search bar */}
         <div className="flex flex-row items-center gap-3 w-full justify-center">
           <input
+            ref={inputref}
             type="text"
             placeholder="Enter city name"
             className="w-full p-2 rounded-full outline-none border-2 pl-4 text-center"
@@ -69,6 +73,9 @@ const Weather = () => {
 
           <img
             src={searchicon}
+            onClick={()=>{
+              search(inputref.current.value)
+            }}
             alt="search"
             className="h-9 w-9 bg-white rounded-full p-2 cursor-pointer"
           />
