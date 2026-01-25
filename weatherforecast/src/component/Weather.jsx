@@ -85,7 +85,7 @@ const Weather = () => {
           className="h-9 w-9 bg-white rounded-full p-2 cursor-pointer"
         />
       </div>
-
+{/* here && is used for showing the data only if the location is correct */}
       {weatherData && (
         <>
           <div className="flex flex-col items-center">
